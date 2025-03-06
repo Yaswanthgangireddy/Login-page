@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login/Signup</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      border: 1px solid #ccc;
+      padding: 20px;
+      border-radius: 8px;
+      width: 300px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="email"] {
+      width: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .switch-form {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container" id="login-form">
+    <h2>Login</h2>
+    <div class="form-group">
+      <label for="login-username">Username:</label>
+      <input type="text" id="login-username" name="login-username">
+    </div>
+    <div class="form-group">
+      <label for="login-password">Password:</label>
+      <input type="password" id="login-password" name="login-password">
+    </div>
+    <button type="button" onclick="login()">Login</button>
+    <div class="switch-form">
+      <a href="#" onclick="showSignup()">Signup</a>
+    </div>
+  </div>
+
+  <div class="container hidden" id="signup-form">
+    <h2>Signup</h2>
+    <div class="form-group">
+      <label for="signup-username">Username:</label>
+      <input type="text" id="signup-username" name="signup-username">
+    </div>
+    <div class="form-group">
+      <label for="signup-email">Email:</label>
+      <input type="email" id="signup-email" name="signup-email">
+    </div>
+    <div class="form-group">
+      <label for="signup-password">Password:</label>
+      <input type="password" id="signup-password" name="signup-password">
+    </div>
+    <button type="button" onclick="signup()">Signup</button>
+    <div class="switch-form">
+      <a href="#" onclick="showLogin()">Login</a>
+    </div>
+  </div>
+
+  <script>
+    function showSignup() {
+      document.getElementById('login-form').classList.add('hidden');
+      document.getElementById('signup-form').classList.remove('hidden');
+    }
+
+    function showLogin() {
+      document.getElementById('signup-form').classList.add('hidden');
+      document.getElementById('login-form').classList.remove('hidden');
+    }
+
+    function login() {
+      // Simulate login success (replace with real login logic)
+      let username = document.getElementById("login-username").value;
+      let password = document.getElementById("login-password").value;
+
+      if(username && password){ //Basic check to see if fields have values.
+        alert("Login Successful!");
+        window.location.href = "dtw project.html"; // Redirect to main page
+      } else {
+        alert("Please enter a username and password");
+      }
+    }
+
+    function signup() {
+      // Simulate signup success (replace with real signup logic)
+      let username = document.getElementById("signup-username").value;
+      let email = document.getElementById("signup-email").value;
+      let password = document.getElementById("signup-password").value;
+
+      if (username && email && password) { //Basic check to see if fields have values.
+          alert("Signup Successful!");
+          window.location.href = "main.html"; // Redirect to main page
+      } else {
+        alert("Please fill out all fields.");
+      }
+    }
+
+    // show login form by default
+    showLogin();
+  </script>
+
+</body>
+</html>
